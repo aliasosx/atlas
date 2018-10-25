@@ -42,12 +42,10 @@ export class DashboardComponent implements OnInit {
     if (this.token) {
       this.dataService.getMenu().subscribe(data => {
         this.menus = data;
-        //console.log(this.menus);
       });
     }
   }
   getCompany() {
-
     if (this.token) {
       this.dataService.getCompany(
         {
@@ -56,7 +54,7 @@ export class DashboardComponent implements OnInit {
           }
         }
       ).subscribe(data => {
-        console.log(data);
+        this.title = data[0].company_name;
       });
     }
   }
