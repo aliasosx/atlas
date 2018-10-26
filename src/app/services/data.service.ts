@@ -23,4 +23,10 @@ export class DataService {
   getCompany(company) {
     return this.http.post(this.url + 'company', company, this.httpOptions);
   }
+  getFoods() {
+    return this.http.get(this.url + 'foods', this.httpOptions);
+  }
+  getFoodById(id) {
+    return this.http.get(this.url + 'food/' + id, this.httpOptions);
+  }
 }

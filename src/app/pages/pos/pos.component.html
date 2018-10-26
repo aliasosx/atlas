@@ -1,1 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Food Ordering</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<div class="row">
+  <div class="col-sm-9">
 
+    <div class="row">
+      <div class="col-md-3 product-grid" *ngFor="let food of foods">
+        <div class="image">
+          <a (click)="addList(food.id)">
+            <img src="{{ food.photo }}" class="w-100">
+            <div class="overlay">
+              <div class="detail">View details</div>
+            </div>
+          </a>
+          <h4 class="text-center">{{ food.food_name }}</h4>
+          <h5 class="text-center">ລາຄາ: {{ food.price }}</h5>
+          <a href="#" class="btn buy">ເລືອກ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">HEY</div>

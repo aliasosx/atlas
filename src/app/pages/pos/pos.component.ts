@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-pos',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PosComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private dataService: DataService) { }
+  foods: any;
   ngOnInit() {
+    this.getFoods();
+  }
+  getFoods() {
+    this.dataService.getFoods().subscribe(foods => {
+      this.foods = foods;
+      //console.log(foods);
+    });
+  }
+  addList(id) {
+    this.dataService.getFoodById(id).subscribe(foods => {
+      console.log(foods)
+    });
   }
 
 }
