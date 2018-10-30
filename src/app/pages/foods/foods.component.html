@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4>ລາຍການອາຫານທັງໝົດ</h4>
+    </div>
+    <div class="card-body">
+      <table id="foodTable" class="table table-striped table-hover" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10"
+        style="width: 100%">
+        <thead>
+          <tr>
+            <th class="text-center">
+              <mfDefaultSorter by="i">#</mfDefaultSorter>
+            </th>
+            <th class="text-center text-nowrap">
+              <mfDefaultSorter by="food_name">
+                ລາຍການອາຫານ
+              </mfDefaultSorter>
+            </th>
+            <th class="text-center">
+              <mfDefaultSorter by="photo">ຮູບພາບ</mfDefaultSorter>
+            </th>
+            <th class="text-center text-nowrap">
+              <mfDefaultSorter by="food_type_id">ປະເພດ</mfDefaultSorter>
+            </th>
+            <th class="text-center">
+              <mfDefaultSorter by="cost">ຕົ້ນທຶນ</mfDefaultSorter>
+            </th>
+            <th class="text-center">
+              <mfDefaultSorter by="price">ລາຄາຂາຍ</mfDefaultSorter>
+            </th>
+            <th class="text-center text-nowrap">
+              <mfDefaultSorter by="currcode">ສະກຸນເງິນ</mfDefaultSorter>
+            </th>
+            <th class="text-center">
+              <mfDefaultSorter by="enabled">ນຳໃຊ້</mfDefaultSorter>
+            </th>
+            <th class="text-center">ຄຳສັ່ງ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let food of mf.data; let i = index" [attr.data-index]="i">
+            <td class="align-middle">{{ i + 1 }}</td>
+            <td class="align-middle text-nowrap">{{ food.food_name }}</td>
+            <td class="align-middle">
+              <div class="text-center">
+                <img class="text-center align-middle w-25" src="{{ food.photo }}">
+              </div>
+            </td>
+            <td class="align-middle text-center">{{ food.food_type_id }}</td>
+            <td class="align-middle text-right">{{ food.cost }}</td>
+            <td class="align-middle text-right">{{ food.price }}</td>
+            <td class="align-middle text-center">{{ food.currcode }}</td>
+            <td class="align-middle text-center">
+              <div class="form-check checkbox-slider--c">
+                <label>
+                  <input type="checkbox" [checked]="food.enabled"><span></span>
+                </label>
+              </div>
+            </td>
+            <td class="align-middle text-center text-nowrap">
+              <button type="button" class="btn btn-warning bmd-btn-fab">
+                <i class="material-icons">
+                  border_color
+                </i>
+              </button>
+              <button type="button" class="btn btn-danger bmd-btn-fab"><i class="material-icons">
+                  remove
+                </i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+
+  <a href="#" class="float" id="menu-share">
+    <i class="material-icons my-float">
+      add
+    </i>
+  </a>
+  <!--
+  <ul>
+    <li><a href="#">
+        <i class="fa fa-facebook my-float"></i>
+      </a></li>
+
+  </ul>
+  -->
+
+</div>

@@ -16,7 +16,6 @@ export class PosComponent implements OnInit {
   getFoods() {
     this.dataService.getFoods().subscribe(foods => {
       this.foods = foods;
-      //console.log(foods);
     });
   }
   addList(id) {
@@ -24,5 +23,4 @@ export class PosComponent implements OnInit {
       console.log(foods)
     });
   }
-
 }

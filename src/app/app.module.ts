@@ -8,7 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SalesComponent } from './pages/sales/sales.component';
 import { TerminalsComponent } from './pages/terminals/terminals.component';
-import { PosComponent } from './pages/pos/pos.component'
+import { PosComponent } from './pages/pos/pos.component';
+import { FoodsComponent } from './pages/foods/foods.component';
+import { NavbarComponent } from './pages/navbar/navbar.component'
+import { DataTableModule } from 'angular-6-datatable';
+
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -16,6 +20,7 @@ const routes: Routes = [
   { path: 'sales', component: SalesComponent },
   { path: 'terminals', component: TerminalsComponent },
   { path: 'pos', component: PosComponent },
+  { path: 'food', component: FoodsComponent },
 ];
 
 @NgModule({
@@ -25,7 +30,9 @@ const routes: Routes = [
     DashboardComponent,
     SalesComponent,
     TerminalsComponent,
-    PosComponent
+    PosComponent,
+    FoodsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +40,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DataTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
